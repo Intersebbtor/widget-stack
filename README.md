@@ -26,6 +26,8 @@ You listen to music in one app, audiobooks in another and podcasts in a third. E
 
 You run a minimal launcher (Niagara, Lawnchair, Nova, Smart Launcher, ...) and want *one* tidy media block instead of three app widgets. Place Widget Stack once, choose which app goes into which row, done.
 
+Some launchers only fit **one widget per popup or slot** (Niagara's widget popups, for example). Widget Stack turns that one slot into a player dashboard: one widget, several players living inside it, all visible at a glance.
+
 ## Features
 
 <img src="docs/config.png" width="300" align="right" alt="Widget Stack setup screen">
