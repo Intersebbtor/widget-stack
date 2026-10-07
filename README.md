@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="../../releases/latest"><b>Download APK</b></a> ·
+  <a href="https://github.com/Intersebbtor/widget-stack/releases/latest"><b>Download APK</b></a> ·
   Android 12+ · No internet permission · MIT
 </p>
 
@@ -51,7 +51,7 @@ To read media sessions, Android requires **notification access**. Widget Stack o
 
 ## Install
 
-1. Download the latest `WidgetStack-x.y.z-release.apk` from [Releases](../../releases/latest) and install it.
+1. Download the latest `WidgetStack-x.y.z-release.apk` from [Releases](https://github.com/Intersebbtor/widget-stack/releases/latest) and install it.
 2. Open **Widget Stack** and tap **Grant** next to *Notification access*.
 3. Long-press your home screen → **Widgets** → **Widget Stack**, place it, and pick your apps.
 
