@@ -38,6 +38,7 @@ Some launchers only fit **one widget per popup or slot** (Niagara's widget popup
 - **Smart buttons:** podcast and audiobook apps that don't support "next track" get their own skip back/forward (e.g. 15 s) instead
 - **Resume from cold:** the row remembers the last played item. ▶ tries to resume playback even when the app isn't running
 - **Tap the cover or title** to jump into the app
+- **Left-handed mode:** per-widget toggle puts the controls on the left and cover and title on the right
 - **Material You:** follows your wallpaper colors, light and dark
 - **Resizable:** rows share the height you give the widget
 - **Private by design:** no internet permission, no analytics, no accounts. Nothing leaves your phone.
@@ -91,7 +92,7 @@ adb devices
 Your phone should be listed as `device`. If it says `unauthorized`, check the prompt on your phone.
 
 ```bash
-adb install -r WidgetStack-1.0.0-release.apk
+adb install -r WidgetStack-1.1.0-release.apk
 ```
 
 `Success` means you're done. Already installed it by tapping the APK? Just run the same command, `-r` reinstalls over it and lifts the block.

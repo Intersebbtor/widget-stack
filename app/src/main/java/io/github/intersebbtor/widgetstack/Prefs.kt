@@ -28,12 +28,17 @@ object Prefs {
         e.putBoolean("w_${widgetId}_configured", true).apply()
     }
 
+    fun leftHanded(ctx: Context, widgetId: Int) = sp(ctx).getBoolean("w_${widgetId}_left", false)
+
+    fun setLeftHanded(ctx: Context, widgetId: Int, left: Boolean) =
+        sp(ctx).edit().putBoolean("w_${widgetId}_left", left).apply()
+
     fun isConfigured(ctx: Context, widgetId: Int) = sp(ctx).getBoolean("w_${widgetId}_configured", false)
 
     fun clear(ctx: Context, widgetId: Int) {
         val e = sp(ctx).edit()
         repeat(SLOTS) { e.remove("w_${widgetId}_$it") }
-        e.remove("w_${widgetId}_configured").remove("w_${widgetId}_rows").apply()
+        e.remove("w_${widgetId}_configured").remove("w_${widgetId}_rows").remove("w_${widgetId}_left").apply()
     }
 
     data class Last(val title: String, val subtitle: String?)

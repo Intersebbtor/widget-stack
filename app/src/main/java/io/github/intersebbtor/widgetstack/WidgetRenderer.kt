@@ -39,8 +39,9 @@ object WidgetRenderer {
         val compact = minWidth in 1 until 250
         val configured = Prefs.isConfigured(ctx, widgetId)
         val pkgs = Prefs.slots(ctx, widgetId)
+        val left = Prefs.leftHanded(ctx, widgetId)
         for (slot in 0 until Prefs.rows(ctx, widgetId)) {
-            root.addView(R.id.slots, buildSlot(ctx, widgetId, slot, pkgs[slot], configured, sessions, compact))
+            root.addView(R.id.slots, buildSlot(ctx, widgetId, slot, pkgs[slot], configured, sessions, compact, left))
         }
         return root
     }
@@ -53,8 +54,9 @@ object WidgetRenderer {
         configured: Boolean,
         sessions: Map<String, MediaController>?,
         compact: Boolean,
+        leftHanded: Boolean,
     ): RemoteViews {
-        val rv = RemoteViews(ctx.packageName, R.layout.widget_slot)
+        val rv = RemoteViews(ctx.packageName, if (leftHanded) R.layout.widget_slot_left else R.layout.widget_slot)
         rv.setViewVisibility(R.id.btn_prev, if (compact) View.GONE else View.VISIBLE)
         val configIntent = configPending(ctx, widgetId)
 

@@ -36,6 +36,9 @@
     <string name="rows_question">How many players should the widget show?</string>
     <string name="rows_hint">Tip: afterwards, long-press the widget on your home screen and resize it to fit. Hidden players are remembered.</string>
     <string name="rows_cd">%d rows</string>
+    <string name="sec_layout">Layout</string>
+    <string name="left_handed">Left-handed mode</string>
+    <string name="left_handed_hint">Controls on the left, cover and title on the right</string>
     <string name="sec_players">Players in this widget</string>
     <string name="players_hint">Tap a row to change the app. Use ↑ ↓ to reorder.</string>
     <string name="add_widget">Add widget</string>

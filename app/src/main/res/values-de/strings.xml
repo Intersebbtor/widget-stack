@@ -33,6 +33,9 @@
     <string name="rows_question">Wie viele Player soll das Widget zeigen?</string>
     <string name="rows_hint">Tipp: Danach das Widget auf dem Startbildschirm lange drücken und passend ziehen. Ausgeblendete Player bleiben gespeichert.</string>
     <string name="rows_cd">%d Zeilen</string>
+    <string name="sec_layout">Layout</string>
+    <string name="left_handed">Linkshänder-Modus</string>
+    <string name="left_handed_hint">Steuerung links, Cover und Titel rechts</string>
     <string name="sec_players">Player im Widget</string>
     <string name="players_hint">Tippe auf eine Zeile, um die App zu ändern. Mit ↑ ↓ änderst du die Reihenfolge.</string>
     <string name="add_widget">Widget hinzufügen</string>
