@@ -25,6 +25,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import android.widget.Switch
 import android.widget.TextView
 
 class ConfigActivity : Activity() {
@@ -34,6 +35,7 @@ class ConfigActivity : Activity() {
     private var addFlow = false
     private val slots = arrayOfNulls<String>(Prefs.SLOTS)
     private var rows = Prefs.DEFAULT_ROWS
+    private var leftHanded = false
     private lateinit var content: LinearLayout
 
     private val known = listOf(
@@ -93,6 +95,7 @@ class ConfigActivity : Activity() {
     private fun loadSlots() {
         val saved = Prefs.slots(this, widgetId)
         rows = Prefs.rows(this, widgetId)
+        leftHanded = Prefs.leftHanded(this, widgetId)
         if (Prefs.isConfigured(this, widgetId)) {
             saved.copyInto(slots)
         } else {
@@ -171,6 +174,9 @@ class ConfigActivity : Activity() {
     private fun renderSlots() {
         content.addView(sectionTitle(getString(R.string.sec_rows)))
         content.addView(card().apply { addView(rowCountPicker()) })
+
+        content.addView(sectionTitle(getString(R.string.sec_layout)))
+        content.addView(card().apply { addView(leftHandedRow()) })
 
         content.addView(sectionTitle(getString(R.string.sec_players)))
         val card = card()
@@ -266,6 +272,21 @@ class ConfigActivity : Activity() {
         ))
     }
 
+    private fun leftHandedRow(): View = LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        addView(LinearLayout(this@ConfigActivity).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+            addView(text(getString(R.string.left_handed), 16f, bold = true))
+            addView(text(getString(R.string.left_handed_hint), 13f, secondary = true, top = 2))
+        })
+        addView(Switch(this@ConfigActivity).apply {
+            isChecked = leftHanded
+            setOnCheckedChangeListener { _, on -> leftHanded = on }
+        })
+    }
+
     private fun swap(a: Int, b: Int) {
         val t = slots[a]; slots[a] = slots[b]; slots[b] = t
         render()
@@ -314,6 +335,7 @@ class ConfigActivity : Activity() {
 
     private fun save() {
         Prefs.saveSlots(this, widgetId, slots, rows)
+        Prefs.setLeftHanded(this, widgetId, leftHanded)
         WidgetRenderer.update(this, AppWidgetManager.getInstance(this), intArrayOf(widgetId))
         setResult(RESULT_OK, resultIntent())
         finish()
